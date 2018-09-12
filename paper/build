@@ -1,0 +1,43 @@
+mkdir -p out
+
+docker run \
+  --rm \
+  --workdir="/root" \
+  -v `pwd`/.deps/ieee.csl:/root/ieee.csl:z \
+  -v `pwd`/.deps/pandoc-tabularize.py:/root/pandoc-tabularize.py:z \
+  -v `pwd`/refs.bib:/root/refs.bib:z \
+  -v `pwd`/paper.md:/root/paper.md:z \
+  -v `pwd`/figures:/root/figures:z \
+  -v `pwd`/out:/root/out:z \
+  ivotron/pandoc:2.2.3.2 \
+    --from markdown+smart \
+    --metadata documentclass=scrartcl \
+    --metadata classoption=twocolumn \
+    --metadata classoption=10pt \
+    --metadata classoption=letterpaper \
+    --metadata natbib=false \
+    --metadata numbersections=true \
+    --metadata secPrefix=section \
+    --pdf-engine=xelatex \
+    --standalone \
+    --highlight-style tango \
+    --bibliography refs.bib \
+    --csl ieee.csl \
+    --filter pandoc-tabularize.py \
+    --filter pandoc-crossref \
+    --filter pandoc-citeproc \
+    --output=out/paper.pdf \
+    paper.md 2> build.log
+
+if [ $? -ne 0 ] ; then
+  echo "ERROR"
+  cat build.log
+  rm build.log
+  exit 1
+fi
+
+mv out/paper.pdf .
+rm -r out
+rm build.log
+
+exit 0
