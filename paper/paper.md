@@ -1,6 +1,7 @@
 ---
-title: "Self-verifiable Experimentation Pipelines: An Alternative to Research Artifact Descriptions"
-author: Ivo Jimenez and Carlos Maltzahn (_UC Santa Cruz_)
+title: "Self-verifiable Experimentation Pipelines"
+subtitle: "An Alternative to Research Artifact Descriptions"
+author: Ivo Jimenez and Carlos Maltzahn (UC Santa Cruz)
 abstract: |
  We make the case for incorporating self-verifiable experimentation 
  pipelines in journals and conferences as a way of streamlining the 
@@ -18,14 +19,15 @@ make their way into these domains---even in CS research itself
 [@fursin_collective_2013 ; @collberg_repeatability_2016], paradoxically.
 
 To address some of the reproducibility issues we face today, a growing 
-number of Computer Science conferences and journals incorporate an 
-artifact evaluation process in which authors of articles submit 
-[artifact descriptions](http://ctuning.org/ae/submission.html) that 
-are tested by a committee, in order to verify that experiments 
-presented in a paper can be re-executed by others. In short, an 
-artifact description is a 2-3 page narrative on how to replicate 
-results, including steps that detail how to install software and how 
-to re-execute experiments and analysis contained in a paper.
+number of CS conferences and journals incorporate an artifact 
+evaluation process in which authors of articles submit artifact 
+descriptions[^ad] that are tested by a committee, in order to verify 
+that experiments presented in a paper can be re-executed by others. In 
+short, an artifact description is a 2-3 page narrative on how to 
+replicate results, including steps that detail how to install software 
+and how to re-execute experiments and analysis contained in a paper.
+
+[^ad]: <http://ctuning.org/ae/submission.html>
 
 # Self-verifiable Pipelines {#sec:sep}
 
@@ -45,7 +47,7 @@ repository where scripts for their pipelines reside, along with a link
 to the CI server that executes them, and use this as the basis for 
 evaluating the reproducibility of their work.
 
-[^cis]: <https://en.wikipedia.org/wiki/Comparison_of_continuous_integration_software>
+[^cis]: <http://en.wikipedia.org/?curid=22903426>
 [^jenkins]: <https://jenkins.io>
 
 While automating the execution of a pipeline can be done in many ways, 
@@ -55,9 +57,9 @@ are five high-level tasks that SEPs must carry out in every execution:
  1. **Code and data dependencies**. Code must reside on a version 
     control system (e.g. Github[^gh], Gitlab[^gl], etc.). If datasets 
     are used, then they should reside in a dataset management system 
-    (datapackage, gitlfs, dataverse, etc.). The experimentation 
-    pipelines must obtain the code/data from these services on every 
-    execution.
+    (Zenodo[^zenodo], CKAN[^ckan], Datapackages[^datapackages], etc.). 
+    The experimentation pipelines must obtain the code/data from these 
+    services on every execution.
  2. **Setup**. The pipeline should build and deploy the code under 
     test. For example, if a pipeline is using containers or VMs to 
     package their code, the pipeline should build the container/VM 
@@ -92,18 +94,24 @@ are five high-level tasks that SEPs must carry out in every execution:
     obtained at runtime), or that a numerical computation is within 
     some expected bounds.
 
-A list of Popper[^popper] [@jimenez_popper_2017] pipelines meeting the 
-above criteria are available at Popper's official documentation 
+A list of Popper [@jimenez_popper_2017] pipelines meeting the above 
+criteria are available at Popper's official documentation 
 website[^popperdoc].
 
-[^popperdoc]: <https://popper.rtfd.io/en/latest/sections/examples.html>.
-[^popper]: A SEP is a set of high-level requirements, rather than a 
-detailed list of low-level requisites. Consequentially, there are many 
-alternatives to create a SEP. While the examples we link to are of 
-Popper pipelines, this article has the intention to apply, in general, 
-to any type of automated approach.
+\ 
+
+> **NOTE**: A SEP is a set of high-level requirements, rather than a 
+> detailed list of low-level requisites. Consequentially, there are 
+> many alternatives to create a SEP. While the examples we link to are 
+> of Popper pipelines, this article has the intention to apply, in 
+> general, to any type of automated approach.
+
+[^popperdoc]: <http://bit.ly/popper-examples>.
 [^gh]: <https://github.com>
 [^gl]: <https://gitlab.com>
+[^zenodo]: <https://zenodo.org>
+[^ckan]: <https://ckan.org/>
+[^datapackages]: <https://frictionlessdata.io/data-packages/>
 [^genilib]: <https://bitbucket.org/barnstorm/geni-lib>
 [^sosreport]: <https://github.com/sosreport/sos>
 [^facter]: <https://github.com/puppetlabs/facter>
@@ -124,15 +132,16 @@ might look like this:
     described in @Sec:sep are met.
 
 Thus, incorporating SEPs to the peer-review process has two important 
-properties:
+outcomes:
 
-  * Improved Experimentation Practices. Authors that consider 
+ 1. **Better Experimentation Practices**. Authors that consider 
     reproducibility as a first-class goal of their work increase the 
     confidence in their results.
-  * Low-overhead Evaluations. With SEPs, the burden of ensuring that a 
-    pipeline can be re-executed by others relies on the authors, wich 
-    leverage the CI service as that third-person ensuring the help of 
-    CI),
+
+ 2. **Low-overhead Evaluation**. With SEPs, the burden of ensuring 
+    that a pipeline can be re-executed by others relies on the 
+    authors, wich leverage the CI service as that third-person 
+    ensuring the help of CI),
 
 # References {.unnumbered}
 
