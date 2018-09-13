@@ -1,8 +1,15 @@
 badge-server-url: http://badges.falsifiable.us
 metadata:
+  abstract: We make the case for incorporating self-verifiable experimentation pipelines
+    in journals and conferences as a way of streamlining the review process for code
+    and data associated to academic articles.
   access_right: open
+  author1: Ivo Jimenez, ivo.jimenez@ucsc.edu, UC Santa Cruz
+  author2: Carlos Maltzahn, carlosm@ucsc.edu, UC Santa Cruz
+  keywords: reproducibility,state of cs practice,automation,devops,sciops,openscience,opendata
   license: CC-BY-4.0
   publication_type: article
+  title: Self-verifiable Experimentation Pipelines
   upload_type: publication
 pipelines:
   paper:
