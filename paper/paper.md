@@ -34,13 +34,13 @@ and how to re-execute experiments and analysis contained in a paper.
 An alternative to the manual creation and verification of an Artifact 
 Description (AD) is to use a continuous integration (CI) service[^cis] 
 such as Jenkins[^jenkins] to ensure that the code (and data) 
-associated to an article can be re-executed by others. If the 
-execution and validation of an experimentation pipeline using a CI 
-service, the URL pointing to the project on the CI server that holds 
-execution logs, as well as the repository containing all the 
-automation scripts, can potentially be used as an alternative to ADs. 
-In other words, the repository containing the code for experimentation 
-pipelines, and the associated CI project, serve both as a 
+associated to an article can be re-executed by others. If authors use 
+a CI service to automate the execution and validation of their 
+experimentation pipelines, the URL pointing to the project on the CI 
+server that holds execution logs, as well as the repository containing 
+all the automation scripts, can be used as an alternative to ADs. In 
+other words, the repository containing the code for experimentation 
+pipelines and the associated CI project serve both as a 
 _Self-verifiable Experimentation Pipeline_ (SEP). Thus, instead of 
 submitting manually written ADs, authors can submit a link to the code 
 repository where scripts for their pipelines reside, along with a link 
