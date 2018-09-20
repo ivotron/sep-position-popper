@@ -26,7 +26,7 @@ docker run \
     --filter pandoc-tabularize.py \
     --filter pandoc-crossref \
     --filter pandoc-citeproc \
-    --output=out/paper.tex \
+    --output=out/paper.pdf \
     paper.md 2> build.log
 
 if [ $? -ne 0 ] ; then
@@ -36,7 +36,7 @@ if [ $? -ne 0 ] ; then
   exit 1
 fi
 
-mv out/paper.tex .
+mv out/paper.pdf .
 rm -r out
 rm build.log
 
